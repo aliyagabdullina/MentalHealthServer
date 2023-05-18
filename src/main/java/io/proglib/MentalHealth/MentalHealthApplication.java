@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static DataBases.NotionTable.createNotionTable;
+import static managers.MeditationsManager.dataBaseAllMed;
 import static managers.VideoYoutubeManager.dataBaseAll;
 import static managers.VideoYoutubeManager.getVideos;
 
@@ -17,8 +18,8 @@ public class MentalHealthApplication {
 	public static void main(String[] args) throws SQLException {
 		dataBaseAll();
 		createNotionTable();
+		dataBaseAllMed();
 
 		SpringApplication.run(MentalHealthApplication.class, args);
 	}
-
 }

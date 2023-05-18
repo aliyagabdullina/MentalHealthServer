@@ -179,5 +179,4 @@ public class VideoYoutubeManager {
     private static HttpRequestInitializer getRequestInitializer() {
         return request -> request.setParser(new JsonObjectParser(new JacksonFactory()));
     }
-
 }

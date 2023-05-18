@@ -10,13 +10,6 @@ import static managers.StatisticsManager.createJson;
 public class StatisticsController {
     @PutMapping
     public String statisticsList() {
-        System.out.println("Statistics sent put");
-        System.out.println(createJson());
-        return createJson();
-    }
-    @GetMapping
-    public String statisticsListShow() {
-        System.out.println("Statistics sent get");
         return createJson();
     }
 }

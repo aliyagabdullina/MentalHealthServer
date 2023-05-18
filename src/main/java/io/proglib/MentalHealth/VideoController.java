@@ -18,5 +18,4 @@ public class VideoController {
     public String video(@RequestParam("index") int index){
         return getVideos().get(index).getUrl();
     }
-
 }

@@ -14,6 +14,7 @@ import static DataBases.NotionTable.insertNotion;
 
 public class NotionManager {
     static ArrayList<Notion> notions = new ArrayList<Notion>();
+    static ArrayList<String> notionsActions = new ArrayList<>();
 
     public static ArrayList<Notion> getNotions() {
         return notions;
@@ -36,6 +37,7 @@ public class NotionManager {
             for (Object obj : activityTexts) {
                 String activityText = (String) obj;
                 activityTextsList.add(activityText);
+                notionsActions.add(activityText);
             }
             Notion notion = new Notion(image, date, noteText, activityTextsList);
 
@@ -51,12 +53,12 @@ public class NotionManager {
     }
 
     public static int howManyActions(String actionName){
-        int count = Collections.frequency(notions, actionName);
+        // System.out.println(notions.get(0).getActivityTextsList());
+        int count = Collections.frequency(notionsActions, actionName);
         return count;
     }
-    public static double percentageOfAction(String actionName){
-        double percentage = (double)howManyActions(actionName)/(double)(notions.size())*100;
+    public static int percentageOfAction(String actionName){
+        int percentage = (int)((double)howManyActions(actionName)/(double)(notions.size())*100);
         return percentage;
     }
-
 }

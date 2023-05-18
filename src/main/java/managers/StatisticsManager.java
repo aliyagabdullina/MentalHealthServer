@@ -15,8 +15,8 @@ import static managers.NotionManager.percentageOfAction;
 public class StatisticsManager {
     public static String getStatisticJson(String actionName) {
         int count = howManyActions(actionName);
-        double percentage = percentageOfAction(actionName);
-
+        int percentage = percentageOfAction(actionName);
+        System.out.println(actionName + " " + count + " " + percentage);
         // Создаем объект для JSON
         JSONObject statisticJson = new JSONObject();
         statisticJson.put("name", actionName);
@@ -46,11 +46,11 @@ public class StatisticsManager {
         return jsonArray.toString();
     }
 
-    public static String createJson(){
-        List<String> stat = new ArrayList<>(Arrays.asList("Йога", "Медитация", "Благодарность", "Здоровый сон", "Хобби", "Уход"));
+    public static String createJson() {
+        System.out.println("Statistics created");
+        List<String> stat = new ArrayList<>(Arrays.asList("Занятие спортом", "Прогулка","Здоровый сон","Полезное питание","Медитация","Благодарность","Доброе дело","Занятие йогой","Общение с людьми","Время с семьей","Разговор по душам","Решение проблемы","Изучение нового","Лимит соц сетей","Приятная атмосфера","Время на отдых","Хобби","Творчество","Культурное событие", "Попробовать новое","Уход","Время с собой","Полезные привычки","Ведение дневника"));
+        // System.out.println(getStatisticsJsonArray(stat));
         return getStatisticsJsonArray(stat);
-
     }
-
 
 }

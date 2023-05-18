@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 import static managers.NotionManager.*;
+import static io.proglib.MentalHealth.StatisticsController.*;
+import static managers.StatisticsManager.createJson;
 
 @RestController
 
@@ -17,20 +19,13 @@ public class NotionController {
         System.out.println("Request body: " + notion);
         jsonString = notion;
         parseNotionJson(jsonString);
+        System.out.println(getNotions());
         sendStatistics();
-
     }
-
-    private void sendStatistics() {
-        // Отправить статистику на сервер
-        // Ваш код для отправки статистики здесь
-        System.out.println("Statistics sent");
-    }
-
-
-    @GetMapping("/notion")
-    public void getNotionRequest() {
-        System.out.println("Got body: ");
+    @GetMapping("/statistics")
+    public String sendStatistics() {
+        System.out.println("Sent");
+        return createJson();
     }
 
 }
